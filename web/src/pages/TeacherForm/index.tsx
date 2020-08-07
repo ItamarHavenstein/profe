@@ -1,5 +1,5 @@
 import React, { FormEvent, useState } from 'react';
-import {useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Input from '../../components/Input';
 import PageHeader from '../../components/PageHeader';
 import './styles.css';
@@ -45,14 +45,14 @@ function TeacherForm() {
     function handleCreateClass(e: FormEvent) {
         e.preventDefault();
 
-        api.post('classes',{
-            name, avatar, whatsapp, bio, subject, 
-            cost : Number(cost),
+        api.post('classes', {
+            name, avatar, whatsapp, bio, subject,
+            cost: Number(cost),
             schedule: scheduleItems
         }).then(() => {
             alert('Cadastro realizado com sucesso');
             history.push('/');
-        }).catch(() =>  {
+        }).catch(() => {
             alert('Erro no cadastro');
         })
 
@@ -114,9 +114,9 @@ function TeacherForm() {
                     <fieldset>
                         <legend>
                             Horários disponíveis
-                        <button type="button" onClick={addNewScheduleItem}>
+                            <button type="button" onClick={addNewScheduleItem}>
                                 + Novo horário
-                        </button>
+                            </button>
                         </legend>
 
                         {scheduleItems.map((scheduleItem, index) => {
